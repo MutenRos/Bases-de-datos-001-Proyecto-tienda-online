@@ -3,17 +3,25 @@
   if(!isset($_SESSION['carrito'])){                     // Si no tenías un carrito
     $_SESSION['carrito'] = [];                          // Ahora tienes un carrito vacío
   }                                                     // Como cuando entras en el supermercado
+  $carrito_count = count($_SESSION['carrito']);
 ?>
 <!doctype html>
 <html lang="es">
   <head>
     <title>Tienda online</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/estilo.css">
   </head>
   <body>
     <header>
       <a href="?"><h1>Tienda online</h1></a>
+      <div class="header-actions">
+        <a class="carrito-link" href="?operacion=carrito">
+          Carrito
+          <span class="badge"><?= $carrito_count ?></span>
+        </a>
+      </div>
     </header>
     <main>
       <?php
